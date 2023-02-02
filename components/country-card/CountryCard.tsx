@@ -1,20 +1,25 @@
 import styles from '@/components/country-card/CountryCard.module.scss';
-import { useState } from 'react';
 
-export default function CountryCard() {
-    //const [brazil, setBrazil] = useState({name: ''});
+export interface Icountry {
+    country: {
+        name: string,
+        flag: string,
+        population: number,
+        region: string,
+        capital: string
+    }
+}
 
-    //fetch('http://localhost:3000/api/countries').then((res) => res.json()).then(data => setBrazil(data[31]))
-
+export default function CountryCard({ country } : Icountry) {
     return (
         <div className={styles.countryCard}>
-            {/* <img src='' alt='country-flag'/> */}
+            <img src={country.flag} alt='country-flag'/>
             <div className={styles.flagTest}></div>
             <div className={styles.countryInfo}>
-                <h1>Brazil</h1>
-                <span><b>Population:</b> 206.135.893</span>
-                <span><b>Region:</b> Americas</span>
-                <span><b>Capital:</b> Brasília</span>
+                <h1>{country?.name}</h1>
+                <span><b>Population:</b> {country.population}</span>
+                <span><b>Region:</b> {country.region}</span>
+                <span><b>Capital:</b> {country.capital}</span>
             </div>
         </div>
     )
