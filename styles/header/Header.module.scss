@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 4rem ;
+    width: 100%;
+    box-shadow: var(--header-shadow);
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      background-color: transparent;
+      border: 0;
+      color: var(--text-color);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }

@@ -17,7 +17,7 @@
   --text-color: hsl(200, 15%, 8%);
   --header-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   --component-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
-
+  --loading-color: hsl(209, 23%, 22%);
 }
 
 .dark-mode:root {
@@ -26,6 +26,7 @@
   --text-color: hsl(0, 0%, 98%);
   --header-shadow: rgba(16, 16, 16, 0.2) 0px 8px 24px;
   --component-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+  --loading-color: hsl(0, 0%, 100%);
 }
 
 * {

@@ -6,7 +6,7 @@ export interface Icountry {
         flag: string,
         population: number,
         region: string,
-        capital: string
+        capital: string,
     }
 }
 
@@ -22,6 +22,6 @@ export default function CountryCard({ country } : Icountry) {
                 <span><b>Region:</b> {country.region}</span>
                 <span><b>Capital:</b> {country.capital ? country.capital : 'Undefined'}</span>
             </div>
-        </div>
+        </div>   
     )
 }

@@ -1,11 +1,9 @@
-import { useState } from 'react'
 import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
 import CountryCard from "@/src/components/country-card/CountryCard";
 import useFetch from "@/src/hooks/useFetch";
 import SearchBarComponent from "@/src/components/search-bar/SearchBar";
-
-import { BsMoon, BsSun } from 'react-icons/bs'
+import Header from '@/src/components/header/Header';
 
 export default function Home() {
 
@@ -15,20 +13,9 @@ export default function Home() {
     population: number,
     region: string,
     capital: string
-
   }
 
   const { data, isFetching } = useFetch<Array<ICountry>>('http://localhost:3000/api/countries')
-  const [theme, setTheme] = useState<boolean>(true); // light = true | dark = false
-
-  function changeTheme(theme: boolean) :void {
-    const html = document.querySelectorAll('html')[0]
-    setTheme(prev => !prev)
-
-    !theme
-      ? html.classList.remove('dark-mode')
-      : html.classList.add('dark-mode')  
-  }
 
   return (
     <>
@@ -40,12 +27,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.header}>
-          <h1>Where in the world?</h1>
-          <button className={styles.themeChanger} onClick={() => changeTheme(theme)}>
-            { theme ? <><BsMoon /> Dark Mode</> : <><BsSun /> Light Mode</> }
-          </button>
-        </div>
+        <Header />
 
         <div className={styles.bodyPage}>
           <div className={styles.searchFilter}>
@@ -63,11 +45,13 @@ export default function Home() {
           </div>
 
           <div className={styles.countries}>
-            { data?.map((country) => {
-              return (
-                <CountryCard country={country}/>
-              )
-            })}
+            { isFetching 
+                ? <div className={styles.ldsRing}><div></div><div></div><div></div><div></div></div>
+                : data?.map((country) => {
+                  return (
+                    <CountryCard country={country} key={Math.random()}/>
+                  )
+                })}
           </div>
         </div>
       </main>
