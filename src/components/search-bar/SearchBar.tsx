@@ -4,8 +4,11 @@ import { IoMdSearch } from "react-icons/io";
 function SearchBarComponent() {
   return (
     <>
-      <IoMdSearch width={50} color={"black"}></IoMdSearch>
-      <div>
+      <div className={styles.container}>
+        <IoMdSearch
+          className={styles.search_icon}
+          fontSize={25}
+        ></IoMdSearch>
         <input
           className={styles.search_bar_component}
           type="text"
