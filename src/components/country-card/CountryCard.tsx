@@ -1,4 +1,4 @@
-import styles from '@/components/country-card/CountryCard.module.scss';
+import styles from '@/styles/country-card/CountryCard.module.scss';
 
 export interface Icountry {
     country: {
