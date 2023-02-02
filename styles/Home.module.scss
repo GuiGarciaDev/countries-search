@@ -1,0 +1,93 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  transition: all .3s linear;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 4rem ;
+    width: 100%;
+    box-shadow: var(--header-shadow);
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      background-color: transparent;
+      border: 0;
+      color: var(--text-color);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  .bodyPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+
+    .searchFilter {
+      display: flex;
+      justify-content: space-between;
+      padding: 3rem 4rem;
+      position: relative;
+
+      @media (max-width: 760px) {
+        & {
+          width: fit-content;
+          flex-direction: column;
+          row-gap: 30px;
+        }
+      }
+
+      select {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        height: 50px;
+        padding: 0 1rem;
+        border: none;
+        outline: none;
+        background-color: var(--component-bg);
+        color: var(--text-color);
+        border-radius: 4px;
+        box-shadow: var(--component-shadow);
+        cursor: pointer;
+
+        &:focus, &:focus-visible, &::-ms-expand {
+          border: none;
+          outline: none;
+        }
+      }
+    }
+
+    .countries {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 0 4rem;
+      column-gap: 60px;
+      row-gap: 100px;
+      flex-wrap: wrap;
+      
+    }
+  }
+}
