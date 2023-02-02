@@ -13,13 +13,14 @@ export interface Icountry {
 export default function CountryCard({ country } : Icountry) {
     return (
         <div className={styles.countryCard}>
-            <img src={country.flag} alt='country-flag'/>
-            <div className={styles.flagTest}></div>
+            <div className={styles.imgHolder}>
+                <img src={country.flag} alt='country-flag'/>
+            </div>
             <div className={styles.countryInfo}>
                 <h1>{country?.name}</h1>
                 <span><b>Population:</b> {country.population}</span>
                 <span><b>Region:</b> {country.region}</span>
-                <span><b>Capital:</b> {country.capital}</span>
+                <span><b>Capital:</b> {country.capital ? country.capital : 'Undefined'}</span>
             </div>
         </div>
     )
