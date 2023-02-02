@@ -1,4 +1,4 @@
-import styles from "./styles/SearchBar.module.scss";
+import styles from "@/styles/search-bar/SearchBar.module.scss";
 import { IoMdSearch } from "react-icons/io";
 
 function SearchBarComponent() {
