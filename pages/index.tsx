@@ -4,8 +4,12 @@ import CountryCard from "@/src/components/country-card/CountryCard";
 import useFetch from "@/src/hooks/useFetch";
 import SearchBarComponent from "@/src/components/search-bar/SearchBar";
 import Header from '@/src/components/header/Header';
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
+  const [filter, setFilter] = useState<string | undefined>(undefined)
+  const [dataFiltered, setDataFiltered] = useState<Array<ICountry> | undefined>([]) 
+  const select = useRef<HTMLSelectElement>(null)
 
   interface ICountry {
     name: string,
@@ -16,6 +20,14 @@ export default function Home() {
   }
 
   const { data, isFetching } = useFetch<Array<ICountry>>('http://localhost:3000/api/countries')
+
+  useEffect(() => {
+    console.log('filter changed: ', filter);
+    
+    if (filter !== undefined)  {
+      setDataFiltered(data?.filter(x => { return x.region === filter}))  
+    }
+  }, [filter])
 
   return (
     <>
@@ -33,10 +45,10 @@ export default function Home() {
           <div className={styles.searchFilter}>
             <SearchBarComponent />
             <form id='regions'>
-              <select name="regions" id="regions">
+              <select name="regions" id="regions" ref={select} onChange={() => setFilter(select.current?.value)}>
                 <option selected disabled hidden>Filter by region</option>
                 <option value="Africa">Africa</option>
-                <option value="America">America</option>
+                <option value="Americas">Americas</option>
                 <option value="Asia">Asia</option>
                 <option value="Europe">Europe</option>
                 <option value="Oceania">Oceania</option>
@@ -47,11 +59,18 @@ export default function Home() {
           <div className={styles.countries}>
             { isFetching 
                 ? <div className={styles.ldsRing}><div></div><div></div><div></div><div></div></div>
-                : data?.map((country) => {
-                  return (
-                    <CountryCard country={country} key={Math.random()}/>
-                  )
-                })}
+                : dataFiltered 
+                  ? dataFiltered?.map((country) => {
+                    return (
+                      <CountryCard country={country} key={Math.random()}/>
+                    )
+                  })
+                  : data?.map((country) => {
+                    return (
+                      <CountryCard country={country} key={Math.random()}/>
+                    )
+                  })
+            }
           </div>
         </div>
       </main>
