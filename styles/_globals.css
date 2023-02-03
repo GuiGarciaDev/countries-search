@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+/*
+  - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+  - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+  - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+
+  - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+  - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+  - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+*/
+
+:root {
+  /* Global project variables */
+  --component-bg: hsl(0, 0%, 100%);
+  --main-bg: hsl(0, 0%, 98%);
+  --text-color: hsl(200, 15%, 8%);
+  --header-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --component-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+
+}
+
+.dark-mode:root {
+  --component-bg: hsl(209, 23%, 22%);
+  --main-bg: hsl(207, 26%, 17%);
+  --text-color: hsl(0, 0%, 98%);
+  --header-shadow: rgba(16, 16, 16, 0.2) 0px 8px 24px;
+  --component-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
