@@ -22,8 +22,6 @@ export default function Home() {
   const { data, isFetching } = useFetch<Array<ICountry>>('http://localhost:3000/api/countries')
 
   useEffect(() => {
-    console.log('filter changed: ', filter);
-    
     if (filter !== undefined)  {
       setDataFiltered(data?.filter(x => { return x.region === filter}))  
     }
