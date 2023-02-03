@@ -7,7 +7,7 @@ import Header from '@/src/components/header/Header';
 import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
-  const [filter, setFilter] = useState<string | undefined>("NoFilter")
+  const [filter, setFilter] = useState<string | undefined>("All")
   const [dataFiltered, setDataFiltered] = useState<Array<ICountry> | undefined>([])
   const select = useRef<HTMLSelectElement>(null)
 
@@ -20,6 +20,10 @@ export default function Home() {
   }
 
   const { data, isFetching } = useFetch<Array<ICountry>>('http://localhost:3000/api/countries')
+
+  useEffect(() => {
+    setDataFiltered(data) // First Init: Prevent 'undefined' value
+  }, [data])
 
   useEffect(() => {
     console.log(filter)
