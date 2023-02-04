@@ -8,8 +8,10 @@ import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   const [filter, setFilter] = useState<string | undefined>("All")
+  const [searchBar, setSearchBar] = useState<string>('')
   const [dataFiltered, setDataFiltered] = useState<Array<ICountry> | undefined>([])
   const select = useRef<HTMLSelectElement>(null)
+  const searchBarValue = useRef<HTMLInputElement>(null)
 
   interface ICountry {
     name: string,
@@ -32,6 +34,12 @@ export default function Home() {
     } else {setDataFiltered(data)}
   }, [filter])
 
+  useEffect(() => {
+    setDataFiltered(data?.filter(x => { return x.name.includes(searchBar)}))  
+    // Limit search by region if filter !== all
+    
+  }, [searchBar])
+
   return (
     <>
       <Head>
@@ -46,7 +54,7 @@ export default function Home() {
 
         <div className={styles.bodyPage}>
           <div className={styles.searchFilter}>
-            <SearchBarComponent />
+            <SearchBarComponent setState={setSearchBar}/>
             <form id='regions'>
               <select name="regions" id="regions" ref={select} onChange={() => setFilter(select.current?.value)}>
                 <option selected disabled hidden>Filter by region</option>
