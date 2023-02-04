@@ -16,6 +16,7 @@ export default function Home() {
 
   interface ICountry {
     name: string,
+    alpha2Code: string,
     flag: string,
     population: string,
     region: string,
