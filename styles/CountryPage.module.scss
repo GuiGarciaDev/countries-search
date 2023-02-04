@@ -1,0 +1,115 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: stretch;
+  align-items: center;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  transition: all 0.3s linear;
+
+  .container {
+    display: flex;
+    justify-content: top;
+    align-items: center;
+
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: left;
+      flex-direction: column;
+      margin-top: 65px;
+      margin-bottom: 90px;
+      gap: 25px;
+      color: rgb(29, 29, 29);
+    }
+
+    .flex_collumn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .flex_row {
+      max-width: 1400px;
+      display: flex;
+      justify-content: left;
+      justify-items: left;
+      gap: 120px;
+    }
+
+    .button_div {
+      margin-bottom: 50px;
+      .back_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        height: 45px;
+        gap: 12px;
+        font-weight: 300;
+        font-size: 20px;
+        color: var(--text-color);
+        letter-spacing: 1px;
+        border-radius: 5px;
+        background-color: var(--component-bg);
+        border: 1px solid rgba(0, 0, 0, 0.127);
+        box-shadow: var(--component-shadow);
+        cursor: pointer;
+        transition: all 400ms;
+      }
+
+      .back_button:hover {
+        border: 1px solid rgba(0, 0, 0, 0.196);
+        background-color: var(--hover-color);
+
+        transition: all 400ms;
+      }
+    }
+
+    .h2 {
+      font-size: 40px;
+      color: var(--text-color);
+      letter-spacing: 1px;
+    }
+
+    .p {
+      font-size: 20px;
+      color: var(--text-color);
+      padding: 5.5px 0;
+      letter-spacing: 0.1px;
+
+      .info_span {
+        color: var(--soft-text-color);
+        padding-left: 1px;
+      }
+    }
+
+    .border_countries {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-color);
+      margin-top: 15px;
+      letter-spacing: 0.5px;
+
+      .h3 {
+        font-weight: 400;
+        margin-right: 2.5px;
+        margin-top: 3px;
+      }
+    }
+
+    .border_countries_container {
+      display: flex;
+      flex-direction: row;
+      width: 560px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+}
