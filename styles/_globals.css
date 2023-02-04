@@ -15,15 +15,18 @@
   --component-bg: hsl(0, 0%, 100%);
   --main-bg: hsl(0, 0%, 98%);
   --text-color: hsl(200, 15%, 8%);
+  --soft-text-color: rgba(0, 0, 0, 0.597);;
+  --hover-color: rgb(247, 247, 247);
   --header-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   --component-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
-
 }
 
 .dark-mode:root {
   --component-bg: hsl(209, 23%, 22%);
   --main-bg: hsl(207, 26%, 17%);
   --text-color: hsl(0, 0%, 98%);
+  --soft-text-color: hsla(0, 0%, 100%, 0.597);
+  --hover-color: hsl(200, 30%, 20%);
   --header-shadow: rgba(16, 16, 16, 0.2) 0px 8px 24px;
   --component-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
 }
@@ -32,5 +35,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration: none;
   font-family: 'Roboto', sans-serif;
 }
