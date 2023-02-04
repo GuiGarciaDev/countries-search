@@ -5,6 +5,7 @@ import useFetch from "@/src/hooks/useFetch";
 import SearchBarComponent from "@/src/components/search-bar/SearchBar";
 import Header from '@/src/components/header/Header';
 import { useEffect, useState, useRef } from "react";
+import { upperMultiplesFirstChar } from "@/src/utils/upperCase";
 
 export default function Home() {
   const [filter, setFilter] = useState<string | undefined>("All")
@@ -16,7 +17,7 @@ export default function Home() {
   interface ICountry {
     name: string,
     flag: string,
-    population: number,
+    population: string,
     region: string,
     capital: string
   }
@@ -28,16 +29,21 @@ export default function Home() {
   }, [data])
 
   useEffect(() => {
-    console.log(filter)
     if (filter !== undefined && filter !== "All")  {
       setDataFiltered(data?.filter(x => { return x.region === filter}))  
     } else {setDataFiltered(data)}
   }, [filter])
 
   useEffect(() => {
-    setDataFiltered(data?.filter(x => { return x.name.includes(searchBar)}))  
-    // Limit search by region if filter !== all
-    
+    if (filter !== 'All') { // If region !== all, search only between contries in this region
+      setDataFiltered(
+        data?.filter(x => { 
+          return x.name.includes(upperMultiplesFirstChar(searchBar)) && x.region == filter
+        })
+      )  
+    } else { // else search in all the world
+      setDataFiltered(data?.filter(x => { return x.name.includes(upperMultiplesFirstChar(searchBar))}))  
+    } 
   }, [searchBar])
 
   return (

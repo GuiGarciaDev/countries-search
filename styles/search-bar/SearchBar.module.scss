@@ -25,9 +25,13 @@
       letter-spacing: 0.5px;
       color: var(--text-color);
     }
+  }
 
-    .svg {
-      color:  var(--text-color);
-    }
+  label {
+    margin-top: 5px;
+  }
+
+  .svg {
+    color:  var(--text-color);
   }
 }
