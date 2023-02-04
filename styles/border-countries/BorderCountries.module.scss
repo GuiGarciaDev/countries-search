@@ -1,0 +1,12 @@
+.border_countries {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.127);
+  box-sizing: content-box;
+  width: 130px;
+  height: 30px;
+  color: var(--text-color);
+  box-shadow: var(--component-shadow);
+  cursor: pointer;
+}
