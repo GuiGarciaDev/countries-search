@@ -47,8 +47,6 @@ export default function CountryPage() {
     ?.filter((e) => e.alpha2Code.toLocaleLowerCase() === query.name)
     .at(0);
 
-    console.log(country)
-
   return (
     <div className={styles.page}>
       <Header />
