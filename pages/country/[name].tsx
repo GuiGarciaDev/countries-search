@@ -47,90 +47,97 @@ export default function CountryPage() {
     ?.filter((e) => e.alpha2Code.toLocaleLowerCase() === query.name)
     .at(0);
 
+    console.log(country)
+
   return (
     <div className={styles.page}>
       <Header />
-      <div className={styles.container}>
-        <div className={styles.main}>
-          <div className={styles.button_div}>
-            <Link href={"/"}>
-              <button className={styles.back_button}>
-                <BiArrowBack fontSize={25} />
-                Back
-              </button>
-            </Link>
-          </div>
-          <div className={styles.flex_row}>
-            <Image
-              src={country?.flag as string}
-              alt={"Country"}
-              width={550}
-              height={380}
-            ></Image>
-            <div className={styles.flex_collumn}>
-              <h2 className={styles.h2}>{country?.name}</h2>
-              <div className={styles.flex_row}>
-                <span>
-                  <p className={styles.p}>
-                    Native Name:{" "}
-                    <span className={styles.info_span}>
-                      {country?.nativeName}
-                    </span>
-                  </p>
-                  <p className={styles.p}>
-                    Population:{" "}
-                    <span className={styles.info_span}>
-                      {country?.population.toLocaleString()}
-                    </span>
-                  </p>
-                  <p className={styles.p}>
-                    Region:{" "}
-                    <span className={styles.info_span}>{country?.region}</span>
-                  </p>
-                  <p className={styles.p}>
-                    Sub Region:{" "}
-                    <span className={styles.info_span}>
-                      {country?.subregion}
-                    </span>
-                  </p>
-                  <p className={styles.p}>
-                    Capital:{" "}
-                    <span className={styles.info_span}>{country?.capital}</span>
-                  </p>
-                </span>
-                <span>
-                  <p className={styles.p}>
-                    Top Level Domain:{" "}
-                    <span className={styles.info_span}>
-                      {country?.topLevelDomain}
-                    </span>
-                  </p>
-                  <p className={styles.p}>
-                    Currencies:{" "}
-                    <span className={styles.info_span}>
-                      {country?.currencies === undefined? null : country?.currencies.map((e) => e.code)}
-                    </span>
-                  </p>
-                  <p className={styles.p}>
-                    Languages:{" "}
-                    <span className={styles.info_span}>
-                      {country?.languages.map((e) => e.name)}
-                    </span>
-                  </p>
-                </span>
-              </div>
-              <div className={styles.border_countries}>
-                <h3 className={styles.h3}>Border Countries:</h3>
-                <div className={styles.border_countries_container}>
-                  {country?.borders === undefined ? <></> : country?.borders.map((e) => {
-                    return <BorderCountries name={e} />;
-                  })}
-                </div>
+
+      <div className={styles.main}>
+        
+        <Link href={"/"}>
+          <BiArrowBack fontSize={25} />
+          Back
+        </Link>
+        
+        <div className={styles.flex_row}>
+
+          <img src={country?.flag as string} alt={"Country"}/>
+
+          <div className={styles.countrySettings}>
+            <h2 className={styles.h2}>{country?.name}</h2>
+            <div className={styles.countryDescription}>
+              <span>
+                <p className={styles.p}>
+                  Native Name:{" "}
+                  <span className={styles.info_span}>
+                    {country?.nativeName}
+                  </span>
+                </p>
+                <p className={styles.p}>
+                  Population:{" "}
+                  <span className={styles.info_span}>
+                    {country?.population.toLocaleString()}
+                  </span>
+                </p>
+                <p className={styles.p}>
+                  Region:{" "}
+                  <span className={styles.info_span}>{country?.region}</span>
+                </p>
+                <p className={styles.p}>
+                  Sub Region:{" "}
+                  <span className={styles.info_span}>
+                    {country?.subregion}
+                  </span>
+                </p>
+                <p className={styles.p}>
+                  Capital:{" "}
+                  <span className={styles.info_span}>
+                    { country?.capital
+                        ? country?.capital
+                        : 'None'
+                    }
+                  </span>
+                </p>
+              </span>
+              <span>
+                <p className={styles.p}>
+                  Top Level Domain:{" "}
+                  <span className={styles.info_span}>
+                    {country?.topLevelDomain}
+                  </span>
+                </p>
+                <p className={styles.p}>
+                  Currencies:{" "}
+                  <span className={styles.info_span}>
+                    {country?.currencies === undefined ? 'None' : country?.currencies.map((e) => e.code)}
+                  </span>
+                </p>
+                <p className={styles.p}>
+                  Languages:{" "}
+                  <span className={styles.info_span}>
+                    { country?.languages.map((e, idx) => (
+                        idx === country?.languages.length - 1
+                          ? e.name
+                          : e.name + ', '
+                      ))
+                    }
+                  </span>
+                </p>
+              </span>
+            </div>
+            <div className={styles.border_countries}>
+              <h3>Border Countries:</h3>
+              <div className={styles.border_countries_container}>
+                {country?.borders === undefined ? <BorderCountries name={'Undefined'} /> : country?.borders.map((e) => {
+                  return <BorderCountries name={e} />;
+                })}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
   );
 }

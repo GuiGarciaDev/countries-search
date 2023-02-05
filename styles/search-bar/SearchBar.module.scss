@@ -7,6 +7,19 @@
   border-radius: 4px;
   background-color: var(--component-bg);
   box-shadow: var(--component-shadow);
+  transition: all .3s;
+
+  @media (max-width: 450px) {
+    & {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    & {
+      width: 250px;
+    }
+  }
 
   input {
     width: 100%;
