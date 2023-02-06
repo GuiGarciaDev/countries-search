@@ -124,8 +124,8 @@
 
         .countryDescription {
           display: flex;
-          justify-content: space-between;
-          transition: all 0.3s;
+          column-gap: 50px;
+          transition: all .3s;
 
           @media (max-width: 1160px) {
             & {
@@ -156,6 +156,7 @@
 
     .border_countries {
       display: flex;
+      column-gap: 10px;
       color: var(--text-color);
       margin-top: 15px;
       letter-spacing: 0.5px;
@@ -168,6 +169,7 @@
       }
 
       h3 {
+        white-space: nowrap;
         font-weight: 400;
         margin-right: 2.5px;
         margin-top: 3px;
