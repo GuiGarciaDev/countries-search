@@ -52,15 +52,13 @@ export default function CountryPage() {
       <Header />
 
       <div className={styles.main}>
-        
         <Link href={"/"}>
           <BiArrowBack fontSize={25} />
           Back
         </Link>
-        
-        <div className={styles.flex_row}>
 
-          <img src={country?.flag as string} alt={"Country"}/>
+        <div className={styles.flex_row}>
+          <img src={country?.flag as string} alt={"Country"} />
 
           <div className={styles.countrySettings}>
             <h2 className={styles.h2}>{country?.name}</h2>
@@ -84,17 +82,12 @@ export default function CountryPage() {
                 </p>
                 <p className={styles.p}>
                   Sub Region:{" "}
-                  <span className={styles.info_span}>
-                    {country?.subregion}
-                  </span>
+                  <span className={styles.info_span}>{country?.subregion}</span>
                 </p>
                 <p className={styles.p}>
                   Capital:{" "}
                   <span className={styles.info_span}>
-                    { country?.capital
-                        ? country?.capital
-                        : 'None'
-                    }
+                    {country?.capital ? country?.capital : "None"}
                   </span>
                 </p>
               </span>
@@ -108,18 +101,19 @@ export default function CountryPage() {
                 <p className={styles.p}>
                   Currencies:{" "}
                   <span className={styles.info_span}>
-                    {country?.currencies === undefined ? 'None' : country?.currencies.map((e) => e.code)}
+                    {country?.currencies === undefined
+                      ? "None"
+                      : country?.currencies.map((e) => e.code)}
                   </span>
                 </p>
                 <p className={styles.p}>
                   Languages:{" "}
                   <span className={styles.info_span}>
-                    { country?.languages.map((e, idx) => (
-                        idx === country?.languages.length - 1
-                          ? e.name
-                          : e.name + ', '
-                      ))
-                    }
+                    {country?.languages.map((e, idx) =>
+                      idx === country?.languages.length - 1
+                        ? e.name
+                        : e.name + ", "
+                    )}
                   </span>
                 </p>
               </span>
@@ -127,15 +121,18 @@ export default function CountryPage() {
             <div className={styles.border_countries}>
               <h3>Border Countries:</h3>
               <div className={styles.border_countries_container}>
-                {country?.borders === undefined ? <BorderCountries name={'Undefined'} /> : country?.borders.map((e) => {
-                  return <BorderCountries name={e} />;
-                })}
+                {country?.borders === undefined ? (
+                  <BorderCountries name={"Undefined"} />
+                ) : (
+                  country?.borders.map((e) => {
+                    return <BorderCountries name={e} />;
+                  })
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
   );
 }
