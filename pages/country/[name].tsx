@@ -7,7 +7,9 @@ import { useRouter } from "next/router";
 import useFetch from "@/src/hooks/useFetch";
 import React from "react";
 import Link from "next/link";
-import dots from "@/src/utils/dots";
+import CountryTitleAnimation from "@/src/components/country-page-motion-divs/CountryTitleAnimation";
+import CountryInfoAnimation from "@/src/components/country-page-motion-divs/CountryInfoAnimation";
+import { motion } from "framer-motion";
 
 export default function CountryPage() {
   const { query } = useRouter();
@@ -50,72 +52,95 @@ export default function CountryPage() {
   return (
     <div className={styles.page}>
       <Header />
-
       <div className={styles.main}>
         <Link href={"/"}>
           <BiArrowBack fontSize={25} />
           Back
         </Link>
-
         <div className={styles.flex_row}>
-          <img src={country?.flag as string} alt={"Country"} />
+          <img src={country?.flag as string} alt={country?.name} />
 
           <div className={styles.countrySettings}>
-            <h2 className={styles.h2}>{country?.name}</h2>
+            <CountryTitleAnimation>
+              <h2 className={styles.h2}>{country?.name}</h2>
+            </CountryTitleAnimation>
+
             <div className={styles.countryDescription}>
               <span>
-                <p className={styles.p}>
-                  Native Name:{" "}
-                  <span className={styles.info_span}>
-                    {country?.nativeName}
-                  </span>
-                </p>
-                <p className={styles.p}>
-                  Population:{" "}
-                  <span className={styles.info_span}>
-                    {country?.population.toLocaleString()}
-                  </span>
-                </p>
-                <p className={styles.p}>
-                  Region:{" "}
-                  <span className={styles.info_span}>{country?.region}</span>
-                </p>
-                <p className={styles.p}>
-                  Sub Region:{" "}
-                  <span className={styles.info_span}>{country?.subregion}</span>
-                </p>
-                <p className={styles.p}>
-                  Capital:{" "}
-                  <span className={styles.info_span}>
-                    {country?.capital ? country?.capital : "None"}
-                  </span>
-                </p>
+                <CountryInfoAnimation delay={0.2}>
+                  <p className={styles.p}>
+                    Native Name:{" "}
+                    <span className={styles.info_span}>
+                      {country?.nativeName}
+                    </span>
+                  </p>
+                </CountryInfoAnimation>
+
+                <CountryInfoAnimation delay={0.23}>
+                  <p className={styles.p}>
+                    Population:{" "}
+                    <span className={styles.info_span}>
+                      {country?.population.toLocaleString()}
+                    </span>
+                  </p>
+                </CountryInfoAnimation>
+
+                <CountryInfoAnimation delay={0.26}>
+                  <p className={styles.p}>
+                    Region:{" "}
+                    <span className={styles.info_span}>{country?.region}</span>
+                  </p>
+                </CountryInfoAnimation>
+
+                <CountryInfoAnimation delay={0.29}>
+                  <p className={styles.p}>
+                    Sub Region:{" "}
+                    <span className={styles.info_span}>
+                      {country?.subregion}
+                    </span>
+                  </p>
+                </CountryInfoAnimation>
+
+                <CountryInfoAnimation delay={0.32}>
+                  <p className={styles.p}>
+                    Capital:{" "}
+                    <span className={styles.info_span}>
+                      {country?.capital ? country?.capital : "None"}
+                    </span>
+                  </p>
+                </CountryInfoAnimation>
               </span>
               <span>
-                <p className={styles.p}>
-                  Top Level Domain:{" "}
-                  <span className={styles.info_span}>
-                    {country?.topLevelDomain}
-                  </span>
-                </p>
-                <p className={styles.p}>
-                  Currencies:{" "}
-                  <span className={styles.info_span}>
-                    {country?.currencies === undefined
-                      ? "None"
-                      : country?.currencies.map((e) => e.code)}
-                  </span>
-                </p>
-                <p className={styles.p}>
-                  Languages:{" "}
-                  <span className={styles.info_span}>
-                    {country?.languages.map((e, idx) =>
-                      idx === country?.languages.length - 1
-                        ? e.name
-                        : e.name + ", "
-                    )}
-                  </span>
-                </p>
+                <CountryInfoAnimation delay={0.35}>
+                  <p className={styles.p}>
+                    Top Level Domain:{" "}
+                    <span className={styles.info_span}>
+                      {country?.topLevelDomain}
+                    </span>
+                  </p>
+                </CountryInfoAnimation>
+                <CountryInfoAnimation delay={0.38}>
+                  <p className={styles.p}>
+                    Currencies:{" "}
+                    <span className={styles.info_span}>
+                      {country?.currencies === undefined
+                        ? "None"
+                        : country?.currencies.map((e) => e.code)}
+                    </span>
+                  </p>
+                </CountryInfoAnimation>
+                <CountryInfoAnimation delay={0.41}>
+                  <p className={styles.p}>
+                    Languages:{" "}
+                    <span className={styles.info_span}>
+                      {country?.languages.map((e, idx) =>
+                        idx === country?.languages.length - 1
+                          ? e.name
+                          : e.name + ", "
+                      )}
+                    </span>
+                  </p>
+                </CountryInfoAnimation>
               </span>
             </div>
             <div className={styles.border_countries}>
