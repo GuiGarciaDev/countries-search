@@ -23,7 +23,7 @@ export default function Home() {
     capital: string
   }
 
-  const { data, isFetching } = useFetch<Array<ICountry>>('http://localhost:3000/api/countries')
+  const { data, isFetching } = useFetch<Array<ICountry>>('https://countries-search-eta.vercel.app/api/countries')
 
   useEffect(() => {
     setDataFiltered(data) // First Init: Prevent 'undefined' value
