@@ -41,7 +41,7 @@ export default function CountryPage() {
   }
 
   const { data, isFetching } = useFetch<Array<ICountry>>(
-    "http://localhost:3000/api/countries"
+    "https://countries-search-eta.vercel.app/api/countries"
   );
 
   const country = data
