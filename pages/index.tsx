@@ -63,7 +63,7 @@ export default function Home() {
           <div className={styles.searchFilter}>
             <SearchBarComponent setState={setSearchBar}/>
             <form id='regions'>
-              <select name="regions" id="regions" ref={select} onChange={() => setFilter(select.current?.value)}>
+              <select name="regions" id="regions" ref={select} onChange={() => setFilter(select.current?.value)} defaultValue={"All"}>
                 <option selected disabled hidden>Filter by region</option>
                 <option value="All">All</option>
                 <option value="Africa">Africa</option>
