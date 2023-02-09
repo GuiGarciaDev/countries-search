@@ -9,7 +9,6 @@ import React from "react";
 import Link from "next/link";
 import CountryTitleAnimation from "@/src/components/country-page-motion-divs/CountryTitleAnimation";
 import CountryInfoAnimation from "@/src/components/country-page-motion-divs/CountryInfoAnimation";
-import { motion } from "framer-motion";
 
 export default function CountryPage() {
   const { query } = useRouter();
@@ -58,7 +57,7 @@ export default function CountryPage() {
           Back
         </Link>
         <div className={styles.flex_row}>
-          <img src={country?.flag as string} alt={country?.name} />
+          <Image src={country?.flag as string} alt={country?.name as string} width={380} height={300} />
 
           <div className={styles.countrySettings}>
             <CountryTitleAnimation>
@@ -150,7 +149,7 @@ export default function CountryPage() {
                   <BorderCountries name={"Undefined"} />
                 ) : (
                   country?.borders.map((e) => {
-                    return <BorderCountries name={e} />;
+                    return <BorderCountries name={e} key={e} />;
                   })
                 )}
               </div>

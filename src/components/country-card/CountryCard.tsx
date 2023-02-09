@@ -1,6 +1,7 @@
 import dotsFormater from "@/src/utils/dots";
 import styles from "@/styles/country-card/CountryCard.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export interface Icountry {
@@ -24,7 +25,7 @@ export default function CountryCard({ country }: Icountry) {
       <Link href={`country/${country.alpha2Code.toLocaleLowerCase()}`}>
         <div className={styles.countryCard}>
           <div className={styles.imgHolder}>
-            <img src={country.flag} alt="country-flag" />
+            <Image src={country.flag} alt={country.name} width={300} height={190} />
           </div>
           <div className={styles.countryInfo}>
             <h1>{country?.name}</h1>
