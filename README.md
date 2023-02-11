@@ -10,13 +10,12 @@ This is a frontendmentor.io challenge: https://www.frontendmentor.io/challenges/
 * Framer-motion
 * React-icons
 
-# Authors
+## Authors
 * GuiGarciaDev: https://github.com/GuiGarciaDev
 * ufoxy: https://github.com/ufoxy
 
-<a href="https://github.com/GuiGarciaDev" target="blank"><img align="center" src="https://avatars.githubusercontent.com/u/121461039?v=4" alt="GuiGarciaDev" height="30" width="40" /></a>
+## Deploy
+This project is deployed in vercel
+https://countries-search-eta.vercel.app/
 
-<p align="left" borderRadius="50%">
-<a href="https://twitter.com/@guigarciadev" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="@guigarciadev" height="30" width="40" /></a>
-  GuiGarciaDev
-</p>
+![image](https://user-images.githubusercontent.com/121461039/218224249-3e06cad8-399e-4be4-959b-3602dae10fad.png)
